@@ -1,0 +1,196 @@
+<html>
+<header id="headr">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfoDAcTLBK6DOE4AAABbklEQVQozy2RO2tUURSFv3PyMCBMctV2wAcIFhZWSsBC82AGxErEOlj4J0QGwb8iiI1gDMpIRkwIQSzEQkVSjCkCBic3mULvvWevbTFn73It2PtbK3wmACCEA45jNAjHEZE8AThN3GCjncXJRseBa8wWgZMl73hn7zak+dmQDcJ5xpdRGrE903dEfK+P02X1ewUhwi6B/eLCyDGEk3BEwvhaXClFDMDFo7TliGp4uDZ6WO0nRPpwtRQifKKkWKJvVMPL57+TuMSPX7RFdas1GBOdhfXQd0Td+4lIfKN+KsTU5slrZ1pMSEREOMrswkhEonG9e9BNwNSTiAGB8FiIg9V7d4wwAE5Rb8fFhA2t56hnbdFszdysMEKfSJqfKyeAKZ8xjMNWMTaiMFbH9XHDv90GEIm/O4nm6NE4JyneavnMm6J1o+wmxJ+VhcXB2QfnnmOIsA65Q3GXl++k+50XOVXHCa+y7DgB8gd1Lh/+A5Re2yP77TVeAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTEyLTA3VDE5OjQzOjEyKzAwOjAwplYCmAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0xMi0wN1QxOTo0MzoxMiswMDowMNcLuiQAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjQtMTItMDdUMTk6NDQ6MTgrMDA6MDDGst/MAAAAAElFTkSuQmCC" />
+    <title>Document Settings</title>
+    <button type="button" onclick="nav1()" id="BackgroundColor" name="btn">Color</button>
+    <button type="button" onclick="nav2()" id="FontSettings" name="btn">Font</button>
+    <button type="button" onclick="nav3()" id="DisplaySettings" name="btn">Display</button>
+</header>
+<body id="main">
+    <div class="optionmenu" id="BCKGCLR" hidden>
+        <a>Color Settings</a>
+        <br>
+        <a>Background</a>
+        <br>
+        <input type="color" name="Background Color" id="BKGCLR">
+        <br>
+        <a>Header</a>
+        <br>
+        <input type="color" name="Head Color" id="HEADCLR">
+        <br>
+        <a>Apply Buttons</a>
+        <br>
+        <a>Background</a>
+        <input type="color" name="Button Color" id="FNTSCLR">
+        <a>Text</a>
+        <input type="color" name="Buttontxt Color" id="FNTSCLR2">
+        <br>
+        <input id="apply1" type="submit" value="Apply" onclick="applybckg()">
+        <input type="reset" value="Back To Defaults">
+    </div>
+    <div class="optionmenu" id="DOCFONT" hidden>
+        <a>Document Font Settings</a>
+        <br>
+        <select name="Font" id="DOCUMNTFNT">
+            <option value="none">Standard</option>
+            <option value="monospace">MonoSpace</option>
+            <option value="serif">Serif</option>
+            <option value="sans-serif">Sans Serif</option>
+            <option value="cursive">???</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">System UI</option>
+        </select>
+        <input type="color" name="Font Color" id="DOCFNTCLR">
+        <input id="fntsize" type="range" min="0" max="100" step="1" width="325" value="16"/>
+        <a>Font Size: <output id="fntsizevalue"></output></a>
+        <select name="Font Weight" id="DOCFNTWEIGHT">
+            <option value="normal">Default</option>
+            <option value="100">Thin</option>
+            <option value="200">Extra Light</option>
+            <option value="300">Light</option>
+            <option value="400">Normal</option>
+            <option value="500">Medium</option>
+            <option value="600">Semi-Bold</option>
+            <option value="700">Bold</option>
+            <option value="800">Extra Bold</option>
+            <option value="900">Black</option>
+        </select>
+        <br>
+        <input id="apply2" type="submit" value="Apply" onclick="applyfonts()">
+        <input type="reset" value="Back To Defaults">
+    </div>
+    <div class="optionmenu" id="DISPLAY" hidden>
+        <a>Display Settings</a>
+        <br>
+        <select name="Margin" id="MARGIN">
+            <option value="-20px">Neg. Far</option>
+            <option value="-10px">Neg. Semi-Far</option>
+            <option value="-8px">Neg. Close-Far</option>
+            <option value="-6px">Neg. Semi-Close</option>
+            <option value="-4px">Neg. Close</option>
+            <option value="-2px">Neg. Xtra Close</option>
+            <option value="0">None</option>
+            <option value="2px">Xtra Close</option>
+            <option value="4px">Close</option>
+            <option value="6px">Semi-Close</option>
+            <option value="8px">Close-Far</option>
+            <option value="10px">Semi-Far</option>
+            <option value="20px">Far</option>
+        </select>
+        <br>
+        <input id="apply3" type="submit" value="Apply" onclick="applydisplay()">
+        <input type="reset" value="Back To Defaults">
+    </div>
+</body>
+</html>
+<style>
+    body{
+        cursor: url("cursors/default.cur"), auto;
+    }
+    button:enabled{
+        cursor: url("cursors/Menu.cur"), auto;
+    }
+    input[type="range"]{
+        cursor: url("cursors/Resize-ew.cur"), auto;
+    }
+    button:disabled{
+        cursor: url("cursors/not-allowed.cur"), auto;
+    }
+    input:disabled{
+        cursor: url("cursors/not-allowed.cur"), auto;
+    }
+    input[type="submit"]{
+        cursor: url("cursors/pointer.cur"), auto;
+    }
+    input[type="reset"]{
+        cursor: url("cursors/pointer.cur"), auto;
+    }
+    input[type="color"]{
+        cursor: url("cursors/crosshair.cur"), auto;
+    }
+    select{
+        cursor: url("cursors/Menu.cur"), auto;
+    }
+    div.optionmenu{
+        background-color: steelblue;
+    }
+</style>
+<script>
+    function opencatg(category) {
+        document.getElementById(category).style.display = 'block'
+    }
+    function closecatg(category) {
+        document.getElementById(category).style.display = 'none'
+    }
+    function applybckg() {
+        var bkgcolor = document.getElementById('BKGCLR').value;
+        document.getElementById('main').style.backgroundColor = bkgcolor;
+        var headcolor = document.getElementById('HEADCLR').value;
+        document.getElementById('headr').style.backgroundColor = headcolor;
+        var btncolor = document.getElementById('FNTSCLR').value;
+        var btntxtcolor = document.getElementById('FNTSCLR2').value;
+        document.getElementById('apply1').style.backgroundColor = btncolor;
+        document.getElementById('apply1').style.color = btntxtcolor;
+        document.getElementById('apply2').style.backgroundColor = btncolor;
+        document.getElementById('apply2').style.color = btntxtcolor;
+        document.getElementById('apply3').style.backgroundColor = btncolor;
+        document.getElementById('apply3').style.color = btntxtcolor;
+        document.getElementById('apply4').style.backgroundColor = btncolor;
+        document.getElementById('apply4').style.color = btntxtcolor;
+        document.getElementById('apply5').style.backgroundColor = btncolor;
+        document.getElementById('apply5').style.color = btntxtcolor;
+        document.getElementById('apply6').style.backgroundColor = btncolor;
+        document.getElementById('apply6').style.color = btntxtcolor;
+        document.getElementById('apply7').style.backgroundColor = btncolor;
+        document.getElementById('apply7').style.color = btntxtcolor;
+        document.getElementById('apply8').style.backgroundColor = btncolor;
+        document.getElementById('apply8').style.color = btntxtcolor;
+    }
+    function applyfonts() {
+        var docfontfamily = document.getElementById('DOCUMNTFNT').value;
+        document.getElementById('main').style.fontFamily = docfontfamily;
+        var fntcolor = document.getElementById('DOCFNTCLR').value;
+        document.fgColor = fntcolor;
+        var fontsize = document.getElementById('fntsize').value;
+        document.getElementById('main').style.fontSize = fontsize;
+        var fntweight = document.getElementById('DOCFNTWEIGHT').value;
+        document.getElementById('main').style.fontWeight = fntweight
+    }
+    function applydisplay() {
+        var docmargin = document.getElementById('MARGIN').value;
+        document.getElementById('main').style.margin = docmargin
+    }
+    function nav1() {
+        opencatg('BCKGCLR');
+        closecatg('DOCFONT');
+        closecatg('DISPLAY');
+        document.getElementById('BackgroundColor').disabled = true;
+        document.getElementById('FontSettings').disabled = false;
+        document.getElementById('DisplaySettings').disabled = false;
+    }
+    function nav2() {
+        opencatg('DOCFONT');
+        closecatg('BCKGCLR');
+        closecatg('DISPLAY');
+        document.getElementById('BackgroundColor').disabled = false;
+        document.getElementById('FontSettings').disabled = true;
+        document.getElementById('DisplaySettings').disabled = false;
+    }
+    function nav3() {
+        opencatg('DISPLAY');
+        closecatg('BCKGCLR');
+        closecatg('DOCFONT');
+        document.getElementById('BackgroundColor').disabled = false;
+        document.getElementById('DisplaySettings').disabled = true;
+        document.getElementById('FontSettings').disabled = false;
+    }
+    const value = document.querySelector("#fntsizevalue");
+    const input = document.querySelector("#fntsize");
+    value.textContent = input.value;
+    input.addEventListener("input", (event) => {
+        fntsizevalue.textContent = event.target.value;
+    });
+
+</script>

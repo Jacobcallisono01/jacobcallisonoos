@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/wallpaper.webp');
+    background-color: #282c34;
+    color: white;
+    cursor: url('cursor.cur'), auto;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    cursor: url('cursor.cur'), auto;
+}
+
+#login-screen input {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: url('cursor.cur'), auto;
+}
+
+#launcher {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #444;
+    padding: 10px;
+    cursor: url('cursor.cur'), auto;
+}
+
+#taskbar {
+    height: 30px;
+    background: #333;
+    color: white;
+    cursor: url('cursor.cur'), auto;
+}
+
+.app-window {
+    position: absolute;
+    width: 640px;
+    height: 480px;
+    border: 1px solid #555;
+    background: #444;
+    display: none;
+    cursor: url('cursor.cur'), auto;
+}
+
+.app-window .header {
+    background: #555;
+    color: white;
+    cursor: url('cursor.cur'), auto;
+    padding: 5px;
+}
+
+.app-window .content {
+    padding: 10px;
+    cursor: url('cursor.cur'), auto;
+}
+iframe{
+    cursor: url('cursor.cur'), auto;
+}
+button{
+    cursor: url('cursor_legacy.cur'), auto;
+}
+#Launcherapps{
+    background: rgba(127, 127, 127, 127);
+    cursor: url('cursor_legacy.cur'), auto;
+}
+a{
+    cursor: url('cursor_legacy.cur'), auto;
+}
+div.app-window[id="error"]{
+    width: 700px;
+    height: 200px;
+}

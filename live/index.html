@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<div class="app-window" id="options">
+    <div class="header" onmousedown="startDrag(event, 'options')">
+        Options <button onclick="miniApp('options')" id="mini">⬇</button>
+        <button onclick="restApp('options')" id="maxi">⬆⬇</button>
+        <button onclick="toggleApps(); document.getElementById('para1').innerHTML = formatAMPM();" accesskey="l">Open Launcher</button>
+        <button onclick="closelauncher()" a>Close Launcher</button>
+        <button onclick="showdesktop()">Show desktop</button>
+        <button onclick="logout()">Log out</button>
+        <button onclick="document.getElementById('runbox').style.display = 'block'; document.getElementById('Launcherapps').style.display = 'none'">Run...</button>
+        <button onclick="bypasslogin()">Bypass Login</button>
+        <button onclick="removescreen()">Remove Screen</button>
+        <button onclick="removelogin()">Remove Login Screen</button>
+    </div>
+</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="runbox">
+        <a>Run...</a>
+        <hr>
+        <input type="text" placeholder="Type a program to run" id="runvalue">
+        <br>
+        <button onclick="run()">Run</button>
+    </div>
+    <div id="boot" class="bootup">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>Jacobcallisono OS V0.4.1 Build 29</h1>
+        <img src="assets/loading_bar.png" alt="Loading..." style="justify-content: center; align-items: end; width: fit-content; height:fit-content;">
+    </div>
+    <div id="login-screen" class="screen" style="display: none;">
+        <br>
+        <br>
+        <br>
+        <h2>Login</h2>
+        <a>If you are logging in for the first time, then click on the "Bypass Login" button.</a>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()" class="tooltip" tiptitle="Login To Unlock All Features">Login</button>
+        <hr>
+        <a>What's new in Version 0.4.1:</a>
+        <br>
+        <a>1: Window resizing</a>
+        <br>
+        <a>2: Updated Control Panel</a>
+        <br>
+        <a>3: Multiple users</a>
+        <br>
+        <a>4: Sounds</a>
+        <br>
+        <a>5: Better run Dialog</a>
+        <br>
+        <a>6: Notifications</a>
+        <br>
+        <a>7: Launcher categories</a>
+        <br>
+        <a>8: Error codes and their specified colors:</a>
+        <br>
+        <a><a style="color: red;">Red: </a>Critical error</a>
+        <br>
+        <a><a style="color: orange;">Orange: </a>Error</a>
+        <br>
+        <a><a style="color: yellow;">Yellow: </a>Warning</a>
+        <br>
+        <a><a style="color: blue;">Blue: </a>Info</a>
+        <br>
+        <a><a style="color: lightblue;">Light blue: </a>Question</a>
+        <br>
+        <a><a style="color: green;">Green: </a>Aterisk</a>
+    </div>
+        <div class="app-window" id="invalidc">
+            <div class="header" onmousedown="startDrag(event, 'invalidc')">
+                Error <button onclick="closeApp('invalidc')">OK</button>
+            </div>
+            <div class="content">
+            <a>Your username or password may be incorrect, or that user doesn't exist.</a>
+            <hr>
+            <a>Error code <a style="color: orange;">-1</a></a>
+            </div>
+        </div>
+    <div id="desktop" class="screen" style="display: none;">
+        <div class="dragicon" id="mypcicon" onmousedown="dragElement(document.getElementById('mypcicon'));" style="left: 0px; top: 0px;">
+            <a ondblclick="openApp('mypc',0.2,0.2);" style="align-items: start; cursor: url('pointer_new.cur'), auto;"><img draggable="false" src="assets/platform/pc.png" width="64" height="64"></a>
+            <div class="dragiconheader" id="mypciconheader">My Computer</div>
+       </div>
+        <div class="dragicon" id="filesicon" onmousedown="dragElement(document.getElementById('filesicon'));" style="left: 0px; top: 128px;">
+             <a ondblclick="openApp('file-manager',0.2,0.2);" style="align-items: start; cursor: url('pointer_new.cur'), auto;"><img draggable="false" src="assets/files.png" width="64" height="64"></a>
+             <div class="dragiconheader" id="filesiconheader">Files</div>
+        </div>
+        <div class="dragicon" id="trashicon" onmousedown="dragElement(document.getElementById('trashicon'));" style="left: 0px; top: 256px;">
+            <a ondblclick="openApp('trash',0.2,0.2);" style="align-items: start; cursor: url('pointer_new.cur'), auto;"><img draggable="false" src="assets/trash.png" width="64" height="64"></a>
+            <div class="dragiconheader" id="trashiconheader">Trash</div>
+       </div>
+       <div class="dragicon" id="downloadicon" onmousedown="dragElement(document.getElementById('downloadicon'));" style="left: 128px; top: 0px;">
+        <a ondblclick="openApp('downloads',0.2,0.2);" style="align-items: start; cursor: url('pointer_new.cur'), auto;"><img draggable="false" src="assets/downloads.png" width="64" height="64"></a>
+        <div class="dragiconheader" id="downloadiconheader">Downloads</div>
+       </div>
+        <div class="dragicon" id="codespacesicon" onmousedown="dragElement(document.getElementById('codespacesicon'));" style="left: 128px; top: 128px;">
+            <a ondblclick="openApp('codespaces',0.2,0.2);" style="align-items: start; cursor: url('pointer_new.cur'), auto;"><img draggable="false" src="assets/codespaces.png" width="64" height="64"></a>
+        <div class="dragiconheader" id="codespacesiconheader">Github Codespaces</div>
+   </div>
+        
+        <div id="launcher" style="top: auto; z-index: 32767;">
+            <button id="toggleApps" onclick="toggleApps(); document.getElementById('para1').innerHTML = formatAMPM(); launchernormal()" oncontextmenu="toggleApps(); document.getElementById('para1').innerHTML = formatAMPM(); launcherfull()" ondblclick="closelauncher()" accesskey="l" class="tooltip" tiptitle="Launcher">🔘</button>
+            <a oncontextmenu="openApp('ver',0,0)" style="cursor: url('cursor.cur'), auto;">Jacobcallisono OS V0.4.1 Build 29</a>
+            <a>|</a>
+            <a onclick="openApp('browser',0.2,0.2);" style="align-items: start; cursor: url('pointer_new.cur'), auto;" class="tooltip" tiptitle="Web browser"><img src="assets/browser.png" width="16" height="16"></a>
+            <a onclick="openApp('textedit',0,0)" style="align-items: start; cursor: url('pointer_new.cur'), auto;" class="tooltip" tiptitle="Text Editor"><img src="assets/file_app.png" width="16" height="16"></a>
+            <a>|</a>
+            <button onclick="openquick();" oncontextmenu="closequick();" style="float: right;" accesskey="q" class="tooltip" tiptitle="Quick Settings">Quick Settings</button>
+            <button onclick="opennoti();" oncontextmenu="closenoti();" style="float: right;" accesskey="n" class="tooltip" tiptitle="Notifications" id="notibtn">2</button>
+            <a id="battery"></a>
+            <div id="para1" style="float: right;"></div>
+        </div>
+        <div id="taskbar" style="height: auto; z-index: 31000;" title="Restore Minimized Apps By Clicking On One Of The Buttons Up Here.">
+            <button onclick="restApp('browser',0.2,0.2);" id="browserbtn" hidden>Web Browser</button>
+            <button onclick="restApp('cmd',0.2,0.2)" id="cmdbtn" hidden>Command Prompt</button>
+            <button onclick="restApp('file-manager',0.2,0.2)" id="file-managerbtn" hidden>Files</button>
+            <button onclick="restApp('virtualdesk',0.2,0.2)" id="virtualdeskbtn" hidden>Virtual desktop</button>
+            <button onclick="restApp('baldi',0.2,0.2)" id="baldibtn" hidden>Baldi's Basics</button>
+            <button onclick="restApp('kbdscts',0,0)" id="kbdsctsbtn" hidden>Keyboard Shortcuts</button>
+            <button onclick="restApp('control',0,0)" id="controlbtn" hidden>Control Panel</button>
+            <button onclick="restApp('textedit',0,0)" id="texteditbtn" hidden>Text Editor</button>
+            <button onclick="restApp('html50edit',0,0)" id="html50editbtn" hidden>HTML Editor</button>
+            <button onclick="restApp('mchelp',0,0)" id="mchelpbtn" hidden>Minecraft Help</button>
+            <button onclick="restApp('ver',0,0)" id="verbtn" hidden>Version</button>
+            <button onclick="restApp('sample',0,0)" id="samplebtn" hidden>Example App</button>
+            <button onclick="restApp('settings',0,0)" id="settingsbtn" hidden>Settings</button>
+            <button onclick="restApp('trash',0,0)" id="trashbtn" hidden>Trash</button>
+            <button onclick="restApp('mypc',0,0)" id="mypcbtn" hidden>My Computer</button>
+            <button onclick="restApp('downloads',0,0)" id="downloadsbtn" hidden>Downloads</button>
+            <button onclick="restApp('ossnd',0,0)" id="ossndbtn" hidden>Sounds</button>
+            <button onclick="restApp('codespaces',0,0)" id="codespacesbtn" hidden>Github Codespaces</button>
+            <button onclick="restApp('winwrld',0,0)" id="winwrldbtn" hidden>WinWorld</button>
+            <button onclick="restApp('notitest',0,0)" id="notitestbtn" hidden>Notification tester</button>
+            <button onclick="restApp('calc',0,0)" id="calcbtn" hidden>Calculator</button>
+            <button onclick="restApp('memdiag',0,0)" id="memdiagbtn" hidden>System Memory Diagnostics</button>
+            <button onclick="restApp('flags',0,0)" id="flagsbtn" hidden>Experiments</button>
+        </div>
+        <div id="apps" style="z-index: 4;">
+            <div class="app-window" id="browser">
+                <div class="header" onmousedown="startDrag(event, 'browser')">
+                    Jacobcallisono Browser V0.2.1 <a onclick="closeApp('browser')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('browser')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <iframe src="browser/index.html" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="cmd">
+                <div class="header" onmousedown="startDrag(event, 'cmd')">
+                    Command Prompt <a onclick="closeApp('cmd')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('cmd')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <iframe src="cmd/index.html" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="file-manager">
+                <div class="header" onmousedown="startDrag(event, 'file-manager')">
+                    <img src="assets/files.png" width=16 height=16> File Manager <a onclick="closeApp('file-manager')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('file-manager')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <iframe src="experiments/fileman-v1/index.html" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="virtualdesk">
+                <div class="header" onmousedown="startDrag(event, 'virtualdesk')">
+                    Virtual Desktop <a onclick="closeApp('virtualdesk')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('virtualdesk')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <iframe src="OS.html" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="control">
+                <div class="header" onmousedown="startDrag(event, 'control')">
+                    Control Panel <a onclick="closeApp('control')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('control')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                    <button onclick="toggleApps(); document.getElementById('para1').innerHTML = formatAMPM();" accesskey="l">Open Launcher</button>
+                    <button onclick="closelauncher()">Close Launcher</button>
+                    <button onclick="showdesktop()">Show desktop</button>
+                    <button onclick="logout()">Log out</button>
+                    <button onclick="document.getElementById('runbox').style.display = 'block'; document.getElementById('Launcherapps').style.display = 'none'">Run...</button>
+                    <button onclick="document.getElementById('restartcont').style.display = 'block';">Save Changes</button>
+                </div>
+                <div class="content">
+                    <a>Display</a>
+                    <br>
+                    <input type="number" name="Width" id="displaywidth" placeholder="Width" value=1024>
+                    <input type="number" name="Height" id="displayheight" placeholder="Height" value=600>
+                    <button onclick=" const widthdisplay = document.getElementById('displaywidth').value; const heightdisplay = document.getElementById('displayheight').value; resizeTo(widthdisplay, heightdisplay)">Apply</button>
+                    <hr>
+                    <a>Users</a>
+                    <br>
+                    <div id="usernameinfo"></div>
+                    <div id="users"></div>
+                    <div id="passwords"></div>
+                    <div id="usersjson"></div>
+                    <button onclick="usernm = prompt('UserName?'); localStorage.setItem('user', usernm); user = localStorage.getItem('user');">Change Username</button>
+                    <button onclick="passwrd = prompt('Password?'); localStorage.setItem('pass', passwrd); pswrd = localStorage.getItem('pass');">Change Password</button>
+                    <button onclick="adduser()">Add User</button>
+                    <button onclick="resetusers()">Reset Users</button>
+                    <hr>
+                    <a>Wallpaper</a>
+                    <br>
+                    <input type="text" name="Wallpaper" id="newwallpr" placeholder="Type url of new Wallpaper Here!" value="assets/wallpapers/" width="320px">
+                    <button onclick="document.querySelector('body').style.backgroundImage = 'url(' + document.getElementById('newwallpr').value +')'">Apply Wallpaper</button>
+                    <button onclick="localStorage.setItem('Wallpaper', document.querySelector('body').style.backgroundImage)">Save Wallpaper</button>
+                    <button onclick="document.querySelector('body').style.backgroundImage = localStorage.getItem('Wallpaper')">Load Wallpaper</button>
+                    <br>
+                    <p>Current wallpapers:</p>
+                    <a>1 (default_.png): Default</a>
+                    <br>
+                    <a>2 (cros____.bmp): Default In 16 Colors</a>
+                    <br>
+                    <a>3 (chrome__.png): Google Chrome logo </a>
+                    <br>
+                    <a>4 (jcnoos__.png): Jacobcallisono OS Wallpaper</a>
+                    <br>
+                    <a>5 (jcnoos16.bmp): Jacobcallisono OS Wallpaper In 16 Color</a>
+                    <hr>
+                    <a>Mouse</a>
+                    <br>
+                    <input type="text" name="Cursor" id="newcursor" placeholder="Type url of new Cursor Here!">
+                    <button onclick="document.querySelector('body').style.cursor = 'url(' + document.getElementById('newcursor').value +'), auto'">Apply Cursor</button>
+                    <hr>
+                    <a>Colors</a>
+                    <br>
+                    <input type="color" name="Color" id="newcolor">
+                    <button onclick="document.querySelector('body').style.backgroundColor = document.getElementById('newcolor').value">Apply Color</button>
+                    <button onclick="localStorage.setItem('Color', document.querySelector('body').style.backgroundColor)">Save Color</button>
+                    <button onclick="document.querySelector('body').style.backgroundColor = localStorage.getItem('Color')">Load Color</button>
+                    <hr>
+                    <a>Fonts</a>
+                    <br>
+                    <select name="Font" id="newfont">
+                        <option value="none">Standard</option>
+                        <option value="monospace">MonoSpace</option>
+                        <option value="serif">Serif</option>
+                        <option value="sans-serif">Sans Serif</option>
+                        <option value="cursive">???</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">System UI</option>
+                        <option value="VGA">IBM VGA</option>
+                        <option value="XGA">IBM XGA</option>
+                        <option value="TERMINAL">Terminal</option>
+                        <option value="SYSTEM">System</option>
+                    </select>
+                    <br>
+                    <button onclick="document.querySelector('body').style.fontFamily = document.getElementById('newfont').value">Apply Font</button>
+                    <button onclick="localStorage.setItem('Font', document.querySelector('body').style.fontFamily)">Save Font</button>
+                    <button onclick="document.querySelector('body').style.fontFamily = localStorage.getItem('Font')">Load Font</button>
+                    <hr>
+                    <a>Sounds</a>
+                    <br>
+                    <button onclick="errorsnd.play();">Error</button>
+                    <button onclick="warnsnd.play();">Warning</button>
+                    <button onclick="critsnd.play();">Critical Error</button>
+                    <button onclick="infosnd.play();">Info</button>
+                </div>
+            </div>
+            <div class="app-window" id="baldi">
+                <div class="header" onmousedown="startDrag(event, 'baldi')">
+                    <img src="assets/baldi.webp" width=16 height=16> Baldi's Basics <a onclick="closeApp('baldi')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('baldi')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <iframe src="https://baldis-basics-online.github.io/" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="kbdscts">
+                <div class="header">
+                    Keyboard Shortcuts <a onclick="closeApp('kbdscts')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="maxiApp('kbdscts')" style="float: right;"><img src="assets/windowbtns/maximize.png" alt="Maximize"></a>
+                    <a onclick="miniApp('kbdscts')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                 <a>|Open Launcher             Alt+l|</a>
+                 <br>
+                 <a>|Close Launcher            Alt+;|</a>
+                 <br>
+                 <a>|Copy                 Ctrl+C|</a>
+                 <br>
+                 <a>|Paste                 Ctrl+V|</a>
+                 <br>
+                 <a>|Cut                  Ctrl+X|</a>
+                 <br>
+                 <a>|Increase Size            Ctrl++|</a>
+                 <br>
+                 <a>|Decrease Size            Ctrl+-|</a>
+                 <br>
+                 <a>|Undo                 Ctrl+Z|</a>
+                 <br>
+                 <a>|Redo                 Ctrl+Y|</a>
+                </div>
+            </div>
+            <div class="app-window" id="textedit">
+                <div class="header" onmousedown="startDrag(event, 'textedit')">
+                    Jacobcallisono Text V0.1 <a onclick="closeApp('textedit')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('textedit')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <button type="button" onclick="localStorage.setItem('textsave', document.getElementById('JcnoText').innerText);">Save</button>
+                <button type="button" onclick="document.getElementById('JcnoText').innerText = localStorage.getItem('textsave')">Load</button>
+                <br>
+                <div id="JcnoText" style="background-color: aqua; color: black;" contenteditable=""></div>
+                </div>
+            </div>
+            <div class="app-window" id="mchelp">
+                <div class="header" onmousedown="startDrag(event, 'mchelp')">
+                    Minecraft Help <a onclick="closeApp('mchelp')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('mchelp')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <iframe src="USERFILE/INSTALED/MCHELP/index.html" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="ver">
+                <div class="header" onmousedown="startDrag(event, 'ver')">
+                    About Jacobcallisono OS
+                    <a onclick="closeApp('ver')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                </div>
+                <div class="content">
+                    <img src="assets/browser.png" alt="Jacobcallisono OS Icon" />
+                    <br>
+                <a>Jacobcallisono OS Version 0.4.1.029</a>
+                    <br>
+                    <a>Jacobcallisono 2024-2025</a>
+                    <br>
+                    <a>2022-2025 Jacobcallisono</a>
+                    <hr>
+                    <a>Jacobcallisono OS Components:</a>
+                    <br>
+                    <a>1: Jacobcallisono OS AppSystem Version 1.0.1</a>
+                    <br>
+                    <a>2: Jacobcallisono QuickPanel Version 1.1.3</a>
+                    <hr>
+                    <a>Graphics Processor Unit (GPU):</a>
+                    <br>
+                    <a id="gpuinfo"></a>
+                </div>
+            </div>
+            <div class="app-window" id="settings">
+                <div class="header" onmousedown="startDrag(event, 'settings')">
+                    <img src="Settings/icons/icon.png" width=16 height=16> Settings <a onclick="closeApp('settings')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('settings')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                <iframe src="Settings/index.html" width=625 height=420></iframe>
+                </div>
+            </div>
+            <div class="app-window" id="html50edit">
+                <div class="header" onmousedown="startDrag(event, 'html50edit')">
+                    Jacobcallisono HTML Editor V0.1 <a onclick="closeApp('html50edit')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('html50edit')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content" style="margin: 0%; padding: 0%;">
+                    <button type="button" onclick="document.getElementById('JcnoHTMLTrnsfrm').innerHTML = document.getElementById('JcnoHTML').innerText;">Transform Into HTML</button>
+                <button type="button" onclick="localStorage.setItem('html50save', document.getElementById('JcnoHTML').innerText);">Save</button>
+                <button type="button" onclick="document.getElementById('JcnoHTML').innerText = localStorage.getItem('html50save')">Load</button>
+                <br>
+                <div id="JcnoHTML" style="background-color: aqua; color: black;" contenteditable=""></div>
+                <div id="JcnoHTMLTrnsfrm" style="background-color: darkcyan; color: white;"></div>
+                </div>
+            </div>
+            <div class="app-window" id="restartcont">
+                <div class="header" onmousedown="startDrag(event, 'restartcont')">
+                    Restart To Continue <button onclick="closeApp('restartcont')">OK</button><button onclick="closeApp('restartcont'); location.reload();">Restart</button>
+                </div>
+                <div class="content">
+                <a>You must restart Jacobcallisono OS to continue.</a>
+                <hr>
+                <a>Error code <a style="color: yellow;">-4</a></a>
+                </div>
+            </div>
+            <div class="app-window" id="trash">
+                <div class="header" onmousedown="startDrag(event, 'trash')">
+                    Trash <a onclick="closeApp('trash')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                    <a onclick="miniApp('trash')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+                </div>
+                <div class="content">
+                    <iframe src="USERFILE/.TRASH/FILES/" width=625 height=420></iframe>
+                </div>
+        </div>
+        <div class="app-window" id="mypc">
+            <div class="header" onmousedown="startDrag(event, 'mypc')">
+                My Computer <a onclick="closeApp('mypc')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+                <a onclick="miniApp('mypc')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+            </div>
+            <div class="content">
+                <iframe src=".." width=625 height=420></iframe>
+            </div>
+    </div>
+    <div class="app-window" id="downloads">
+        <div class="header" onmousedown="startDrag(event, 'downloads')">
+            Downloads <a onclick="closeApp('downloads')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('downloads')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <iframe src="USERFILE/DOWNLOAD/" width=625 height=420></iframe>
+        </div>
+    </div>
+    <div class="app-window" id="sample">
+        <div class="header" onmousedown="startDrag(event, 'sample')">
+            Sample App
+            <a onclick="closeApp('sample')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('sample')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+        </div>
+    </div>
+    <div class="app-window" id="codespaces">
+        <div class="header" onmousedown="startDrag(event, 'codespaces')">
+            Github Codespaces <a onclick="closeApp('codespaces')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('codespaces')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <iframe src="https://github.dev/github/dev" width=625 height=425></iframe>
+        </div>
+    </div>
+    <div class="app-window" id="winwrld">
+        <div class="header" onmousedown="startDrag(event, 'winwrld')">
+            <img src="assets/winwrld.jpeg" width=16 height=16> WinWorld <a onclick="closeApp('winwrld')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('winwrld')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <iframe src="http://winworldpc.com" width=625 height=420></iframe>
+        </div>
+    </div>
+    <div class="app-window" id="notitest">
+        <div class="header" onmousedown="startDrag(event, 'notitest')">
+            Notification tester
+            <a onclick="closeApp('notitest')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('notitest')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <input type="text" name="notifid" id="notiidtext" placeholder="Notification ID" />
+            <input type="text" name="notifprog" id="notiprogtext" placeholder="Notification program" />
+            <input type="text" name="notiflevel" id="notileveltext" placeholder="Notification level" />
+            <input type="text" name="notiftitle" id="notititletext" placeholder="Notification title" />
+            <input type="text" name="notiftext" id="notitext" placeholder="Notification text" />
+            <button onclick="newnoti(document.getElementById('notiidtext').value, document.getElementById('notiprogtext').value, document.getElementById('notileveltext').value, document.getElementById('notititletext').value, document.getElementById('notitext').value)">New notification</button>
+        </div>
+    </div>
+    <div class="app-window" id="calc">
+        <div class="header" onmousedown="startDrag(event, 'calc')">
+            Calculator
+            <a onclick="closeApp('calc')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('calc')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <input type="text" readonly id="calcoutput" style="width: 120px;" value="0" />
+            <div id="calcbuttons">
+                <button id="calc1" onclick="document.getElementById('calcoutput').value = ''">C</button>
+                <button id="calc2" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '('">(</button>
+                <button id="calc3" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + ')'">)</button>
+                <button id="calc4" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '+'">+</button>
+                <br>
+                <button id="calc5" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value * -1">±</button>
+                <button id="calc6" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '.'">.</button>
+                <button id="calc7" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '0'">0</button>
+                <button id="calc8" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '-'">-</button>
+                <br>
+                <button id="calc9" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '7'">7</button>
+                <button id="calc10" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '8'">8</button>
+                <button id="calc11" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '9'">9</button>
+                <button id="calc12" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '*'">*</button>
+                <br>
+                <button id="calc13" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '4'">4</button>
+                <button id="calc14" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '5'">5</button>
+                <button id="calc15" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '6'">6</button>
+                <button id="calc16" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '/'">/</button>
+                <br>
+                <button id="calc17" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '1'">1</button>
+                <button id="calc18" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '2'">2</button>
+                <button id="calc19" onclick="document.getElementById('calcoutput').value = document.getElementById('calcoutput').value + '3'">3</button>
+                <button id="calc20" onclick="document.getElementById('calcoutput').value = eval(document.getElementById('calcoutput').value)">=</button>
+            </div>
+        </div>
+    </div>
+    <div class="app-window" id="memdiag">
+        <div class="header" onmousedown="startDrag(event, 'memdiag')">
+            System Memory Diagnostics
+            <a onclick="closeApp('memdiag')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('memdiag')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <a> Heap Size:</a>
+            <a id="heapsize">0</a>
+            <br>
+            <a> Used Heap:</a>
+            <a id="usedheap">0</a>
+            <br>
+            <a>Heap Limit:</a>
+            <a id="heaplimit">0</a>
+            <br>
+            <a>Free Heap Mem:</a>
+            <a id="freeheapmem">0</a>
+            <br>
+            <a>Free Heap:</a>
+            <a id="freeheap">0</a>
+        </div>
+    </div>
+    <div class="app-window" id="flags">
+        <div class="header" onmousedown="startDrag(event, 'flags')">
+            Experiments
+            <a onclick="closeApp('flags')" style="float: right;"><img src="assets/windowbtns/close.png" alt="Close"></a>
+            <a onclick="miniApp('flags')" style="float: right;"><img src="assets/windowbtns/minimize.png" alt="Minimize"></a>
+        </div>
+        <div class="content">
+            <iframe src="experiments/index.html" frameborder="0"></iframe>
+        </div>
+    </div>
+        </div>
+        <div id="Launcherapps" hidden style="z-index: 32700;">
+            <button type="button" onclick="launcherfull()" style="float: right;" id="lnchrfull">></button>
+            <button type="button" onclick="launchernormal()" style="float: right;" id="lnchrnorm"><</button>
+            <hr>
+            <a>Apps</a>
+            <br>
+            <a onclick="openApp('browser',0.2,0.2);" style="align-items: start;" class="tooltip" tiptitle="Web browser"><img src="assets/browser.png" width="64" height="64"></a>
+            <a onclick="openApp('cmd',0.2,0.2)" style="align-items: start;" class="tooltip" tiptitle="Command Prompt"><img src="assets/cmd.png" width="64" height="64"></a>
+            <a onclick="openApp('file-manager',0.2,0.2)" style="align-items: start;" class="tooltip" tiptitle="Files"><img src="assets/files.png" width="64" height="64" ></a>
+            <a onclick="openApp('virtualdesk',0.2,0.2)" style="align-items: start;" class="tooltip" tiptitle="Virtual Desktop"><img src="assets/virtualdesk.webp" width="64" height="64" ></a>
+            <a onclick="openApp('kbdscts',0,0)" style="align-items: start;" class="tooltip" tiptitle="Keyboard Shortcuts"><img src="assets/file_app.png" width="64" height="64"></a>
+            <a onclick="openApp('control',0,0)" style="align-items: start;" class="tooltip" tiptitle="Control Panel (Beta)"><img src="Settings/icons/icon.png" width="64" height="64"></a>
+            <a onclick="openApp('textedit',0,0)" style="align-items: start;" class="tooltip" tiptitle="Text Editor"><img src="assets/file_app.png" width="64" height="64"></a>
+            <a onclick="openApp('html50edit',0,0)" style="align-items: start;" class="tooltip" tiptitle="HTML Editor"><img src="assets/file_app.png" width="64" height="64"></a>
+            <a onclick="openApp('ver',0,0)" style="align-items: start;" class="tooltip" tiptitle="Version"><img src="assets/file_app.png" width="64" height="64"></a>
+            <a onclick="openApp('settings',0,0)" style="align-items: start;" class="tooltip" tiptitle="Settings"><img src="Settings/icons/icon.png" width="64" height="64"></a>
+            <hr>
+            <a>Games</a>
+            <br>
+            <a onclick="openApp('baldi',0.2,0.2)" style="align-items: start;" class="tooltip" tiptitle="Baldi's Basics"><img src="assets/baldi.webp" width="64" height="64"></a>
+            <hr>
+            <a>Addons</a>
+            <br>
+            <a onclick="openApp('mchelp',0,0)" style="align-items: start;" class="tooltip" tiptitle="Minecraft Help (Beta)"><img src="USERFILE/INSTALED/MCHELP/Icon.png" width="64" height="64"></a>
+            <hr>
+            <a>Options</a>
+            <br>
+            <button onclick="closelauncher()" accesskey=";">Close App Launcher</button>
+            <button onclick="showdesktop()">Show desktop</button>
+            <a href="">Restart</a>
+            <button onclick="logout()">Log out</button>
+            <button onclick="document.getElementById('runbox').style.display = 'block'; document.getElementById('Launcherapps').style.display = 'none'">Run...</button>
+            <hr>
+        </div>
+        <div id="quicksettings" hidden style="z-index: 32701;">
+            <button onclick="alert(navigator.platform);">Platform</button>
+            <img id="network" src='assets/network/unknown.png' onratechange="checknetwork();" ontimeupdate="checknetwork();" ondurationchange="checknetwork();" onpointermove="checknetwork();" onshow="checknetwork();" />
+            <img id="bt" src='assets/bluetooth/hover.png' onratechange="checkbluetooth();" onpointermove="checkbluetooth();" onshow="checkbluetooth();" />
+            <br>
+            <a>Network Status:</a>
+            <div id="networkg">Hover On The Network Icon To View</div>
+            <a>Bluetooth Status:</a>
+            <div id="btav">Hover On The Bluetooth Icon To View</div>
+        </div>
+        <div id="notifications" hidden style="z-index: 32702;">
+            <button style="float: right;" onclick="clearnotis()" id="clearnotis">Clear</button>
+            <hr>
+            <a id="nonoti" hidden>You have no notifications.</a>
+            <hr>
+            <div id="notis">
+                <div class="noti" id="firstloginnoti">
+                    <a>Jacobcallisono OS</a>
+                    <hr>
+                    <a style="font-size: large;">First time log in</a>
+                    <br>
+                    <a>If you logged in for the first time, then click on the Launcher button, click on the Control Panel app, then click on the Add User button, then type in a username, press the Enter key, enter in a password, then press the Enter key again.</a>
+                </div>
+                <div class="noti" id="whatsnewnoti">
+                    <a>Jacobcallisono OS</a>
+                    <hr>
+                    <a style="font-size: large;">What's new</a>
+                    <br>
+                    <a>1: Window resizing</a>
+                    <br>
+                    <a>2: Updated Control Panel</a>
+                    <br>
+                    <a>3: Multiple users</a>
+                    <br>
+                    <a>4: Sounds</a>
+                    <br>
+                    <a>5: Better run Dialog</a>
+                    <br>
+                    <a>6: Notifications</a>
+                    <br>
+                    <a>7: Launcher categories</a>
+                    <br>
+                    <a>8: Error codes and their specified colors:</a>
+                    <br>
+                    <a><a style="color: red;">Red: </a>Critical error</a>
+                    <br>
+                    <a><a style="color: orange;">Orange: </a>Error</a>
+                    <br>
+                    <a><a style="color: yellow;">Yellow: </a>Warning</a>
+                    <br>
+                    <a><a style="color: blue;">Blue: </a>Info</a>
+                    <br>
+                    <a><a style="color: lightblue;">Light blue: </a>Question</a>
+                    <br>
+                    <a><a style="color: green;">Green: </a>Aterisk</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div id="Kpanic">
+        <a>To Exit Recovery mode, Shut Down Your Computer.</a>
+        <br>
+        <a>Options:</a>
+        <br>
+        <a href="recoverymode.html">Enter Recovery Mode</a>
+        <br>
+        <a href="setup/index.html">Reinstall Jacobcallisono OS</a>
+        <br>
+        <a href="USERFILE/JCNOOS03/index.html">Boot Into Jacobcallisono OS V0.3.2</a>
+        <br>
+        <a href="">Restart Your Computer</a>
+        <hr>
+        <a>Error code <a style="color: red;">-3</a></a>
+    </div>
+    <noscript>
+        <h1>Cannot load because script.js is missing or your browser does not support it.</h1>
+        <a href="recoverymode.html">Enter Recovery Mode</a>
+        <hr>
+        <a>Error code <a style="color: red;">-2</a></a>
+    </noscript>
+</body>
+</html>
+<script>
+    var errorsnd = new Audio('assets/sound/error.wav');
+    var warnsnd = new Audio('assets/sound/warn.wav');
+    var critsnd = new Audio('assets/sound/crit.mp3');
+    var infosnd = new Audio('assets/sound/info.mp3');  
+</script>

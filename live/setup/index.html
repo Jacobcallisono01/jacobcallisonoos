@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono OS Setup</title>
+</head>
+<body>
+    <div class="pg">
+        <input type="checkbox" name="Example" id="" value="Example">
+        <input type="radio" name="Example2" id="" value="Example2">
+        <input type="text" name="" id="">
+        <input type="email" name="" id="" required>
+        <input type="password" name="" id="" required>
+        <input type="datetime-local" name="" id="">
+        <input type="radio" name="MOUSE" id="MOUSEY" value="MOUSE" required>
+        <label for="MOUSEY">Yes</label>
+        <input type="radio" name="MOUSE" id="MOUSEN" value="NOMOUSE" required>
+        <label for="MOUSEN">No</label>
+    </div>
+    <div class="leftpnl">
+        <a>Jacobcallisono OS Setup</a>
+    </div>
+    <div class="pgbtn">
+        <input type="button" value="Next" class="nextbtn" id="btn">
+        <input type="button" value="Prev." class="prevbtn" id="btn">
+        <input type="button" value="Try Jacobcallisono OS" class="nextbtn" id="btn" onclick="location.href = '../index.html';">
+    </div>
+</body>
+</html>
+<style>
+    body{
+        margin: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: darkgrey;
+        color: white;
+        font-family: sans-serif;
+        cursor: pointer;
+    }
+
+    .pg input{
+        background: linear-gradient(#aaa,#555);
+        cursor: pointer;
+    }
+
+    .pgbtn{
+        background: linear-gradient(darkgrey,lightgrey);
+        background-blend-mode: difference;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .leftpnl{
+        background: linear-gradient(darkgrey,lightgrey);
+        background-blend-mode: difference;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        max-width: 180px;
+    }
+
+    .pg{
+        margin-left: 192px;
+        z-index: 128;
+        position: relative;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        font-family: serif;
+    }
+
+    .pgbtn input{
+        display: flex;
+        float: right;
+        justify-content: right;
+        cursor: pointer;
+    }
+
+    .nextbtn{
+        background: linear-gradient(#aaa,#555);
+        color: white;
+    }
+    .nextbtn:hover{
+        background: linear-gradient(#fff,#aaa);
+        color: #555;
+    }
+    .nextbtn:active{
+        background: linear-gradient(#555,#aaa);
+        color: #ff5;
+    }
+    .nextbtn:active:hover{
+        background: linear-gradient(#aaa,#fff);
+        color: #aa0;
+    }
+    .prevbtn{
+        background: linear-gradient(#aaa,#500);
+        color: white;
+    }
+    .prevbtn:hover{
+        background: linear-gradient(#fff,#a00);
+        color: #555;
+    }
+    .prevbtn:active{
+        background: linear-gradient(#500,#aaa);
+        color: #5ff;
+    }
+    .prevbtn:active:hover{
+        background: linear-gradient(#a00,#fff);
+        color: #0aa;
+    }
+</style>

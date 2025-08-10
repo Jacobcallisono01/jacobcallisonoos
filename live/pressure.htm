@@ -1,0 +1,23 @@
+<script>
+    function callback(records) {
+  const lastRecord = records[records.length - 1];
+  console.log(`Current pressure ${lastRecord.state}`);
+  if (lastRecord.state === "critical") {
+    // disable video feeds
+  } else if (lastRecord.state === "serious") {
+    // disable video filter effects
+  } else {
+    // enable all video feeds and filter effects
+  }
+}
+
+try {
+  const observer = new PressureObserver(callback);
+  await observer.observe("cpu", {
+    sampleInterval: 1000, // 1000ms
+  });
+} catch (error) {
+  // report error setting up the observer
+}
+
+</script>

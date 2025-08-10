@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Settings - Jacobcallisono Browser Version 0.2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="settings-container">
+        <h1>Browser Settings</h1>
+        <div id="nav">
+            <button onclick="showCategory('general')">General</button>
+            <button onclick="showCategory('privacy')">Privacy</button>
+            <button onclick="showCategory('appearance')">Appearance</button>
+            <button onclick="showCategory('about')">About</button>
+        </div>
+        
+        <div id="settings-categories">
+            <div id="general" class="settings-category">
+                <h2>General</h2>
+                <label for="homepage">Homepage URL:</label>
+                <input type="text" id="homepage" placeholder="Enter homepage URL">
+                <br>
+                <label for="search-engine">Default Search Engine:</label>
+                <select id="search-engine">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="duckduckgo">DuckDuckGo</option>
+                </select>
+                <br>
+                <button onclick="saveSettings('general')">Save Settings</button>
+            </div>
+            
+            <div id="privacy" class="settings-category" style="display:none;">
+                <h2>Privacy</h2>
+                <label for="block-cookies">
+                    <input type="checkbox" id="block-cookies"> Block third-party cookies
+                </label>
+                <br>
+                <label for="clear-history">
+                    <input type="checkbox" id="clear-history"> Clear browsing history on exit
+                </label>
+                <br>
+                <button onclick="saveSettings('privacy')">Save Settings</button>
+            </div>
+
+            <div id="appearance" class="settings-category" style="display:none;">
+                <h2>Appearance</h2>
+                <label for="theme">Theme:</label>
+                <select id="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <br>
+                <button onclick="saveSettings('appearance')">Save Settings</button>
+            </div>
+
+            <div id="about" class="settings-category" style="display:none;">
+                <h2>About Jacobcallisono Browser</h2>
+                <img src="IMAGES/ICON.PNG" alt="Jacobcallisono Browser Icon">
+                <p>Version 0.2.1.2140 (official build) (32/64-bit)</p>
+                <p>Currently In Beta Channel.<p>
+                    <button type="button" name="Update" id="updatetolatest" style="background: linear-gradient(#f3f3f3, #e1e1e1); border-radius:0%; border-color: #b0b0b0; border:50%; border: width 50%; border-block-width:50%; color: #555555; box-sizing: border-box;" onclick="updatecheck()" on>Check for updates</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

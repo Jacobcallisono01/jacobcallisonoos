@@ -1,0 +1,23 @@
+Jacobcallisono OS Version 0.4 Build 12 FileSystem Notice
+1: Jacobcallisono OS Can Only Support Filesystems FAT16, FAT32 and exFAT(FAT64) For setting up to main Hard Disk
+2: Jacobcallisono OS Can Support FAT12, FAT16, FAT32, exFAT(FAT64) and NTFS For setting up to external Disk
+ 2.1: 27 1.44MB 3½ Floppy Disks (FAT12 Only)
+ 2.2: 14 2.88MB Floppy Disks (FAT12 Only)
+ 2.3: ZIP Disk (FAT16 Only)
+ 2.4: CD/DVD (FAT16, FAT32)
+ 2.5: CF Card (FAT16, FAT32, exFAT)
+ 2.6: SD Card (FAT16, FAT32, exFAT, NTFS)
+ 2.7: USB FlashDrive (FAT32, exFAT, NTFS)
+ 2.8: USB Hard Disk (FAT32, exFAT, NTFS)
+ 2.9: Amazon Fire Tablet Connected to device running Setup (FAT32 Only)
+ 2.A: ChromeBook Connected to device running Setup (FAT32, exFAT, NTFS)
+ 2.B: ChromeBox, ChromeBase Connected to device running Setup (FAT32, exFAT, NTFS)
+ 2.C: Old Desktops and laptops running Windows XP (FAT16, FAT32, NTFS)
+ 2.D: Old Desktops and laptops running Windows Vista (FAT16, FAT32, exFAT, NTFS)
+ 2.E: Old Desktops and laptops running Windows 98, ME (FAT16, FAT32)
+ 2.F: Old Desktops and laptops running Windows 95 (FAT16 Only)
+3: The Maximum Partition Size You Can use For a Partition Is 16PB. If the Maximum is exceeded, then It will create Another partition on the same disk, all partitioned disks have the same limit of 16PB.
+4: If you setup Using Floppy Disks, Then You Will Have to use 32-64 (Depending On The Version) 1.44MB Floppy Disks For Setup.
+5: If you setup Using A CD, Then You Will Have to use 1-32 (Depending On The Version) 700MB CDs For Setup.
+6: If you setup Using A CF or an SD Card, Then You Will Have to use 2-128 (32MB-1GB); 1-20 (1-4GB); 1-12 (4-12GB); 1-6 (12-64GB); 1-4 (64-256GB); 1-2 (256GB-1TB); 1 (1-8TB) (Depending On The Version) For Setup.
+7: If you setup Using A USB Flash Drive, Then You Will Have to use 2-75 (8-16MB); 2-50 (16-64MB); 1-30 (64-256MB); 1-10 (256MB-2GB); 1-6 (2-16GB); 1-4 (16-512GB); 1-2 (512GB-2TB); 1 (2TB-32TB) (Depending On The Version) For Setup.

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono OS Mobile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="mobile-os">
+        <div id="app-container">
+            <div class="app" id="browser" style="display: none;">
+                <h2>Web Browser</h2>
+                <input type="text" placeholder="Enter URL" id="url-input">
+                <button id="go-btn">Go</button>
+                <iframe id="browser-frame" src="" style="width: 99.59%; height: 300px;"></iframe>
+            </div>
+            <div class="app" id="settings" style="display: none;">
+                <h2>Settings</h2>
+                <hr>
+                <h3>Theme</h3>
+                <label>
+                    <input type="checkbox" id="dark-mode-toggle"> Dark Mode
+                </label>
+                <hr>
+                <h3>Power</h3>
+                <button onclick="close()">Shut down...</button>
+                <br>
+                <button onclick="window.location.href = '' ">Restart...</button>
+                <hr>
+                <h3>About</h3>
+                <a>Version 0.1.1</a>
+                <br>
+                <button id="update-check">Check for updates...</button>
+            </div>
+            <div class="app" id="store" style="display: none;">
+                <iframe src="http://jacobcallisono01.github.io/JacobcallisonoStore" style="width: 100%; height: 100%; border: 0; "></iframe>
+            </div>
+            <div class="app" id="files" style="display: none;">
+                <h2>Files</h2>
+                
+            </div>
+            <div class="app" id="appman" style="display: none;">
+                <iframe src="apps/index.html" style="width: 100%; height: 100%; border: 0; "></iframe>
+            </div>
+            <div class="app" id="home" style="display: block;">
+                <h2>Home Screen</h2>
+                <button id="launch-browser">Launch Browser</button>
+                <button id="open-settings">Settings</button>
+                <button id="install-app">Install App</button>
+            </div>
+        </div>
+        <div id="buttons">
+            <button id="back-btn"><</button>
+            <button id="home-btn">🔘</button>
+            <button id="switch-btn">🔳</button>
+            <button id="close-app">Close</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

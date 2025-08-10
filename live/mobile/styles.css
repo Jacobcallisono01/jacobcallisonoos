@@ -1,0 +1,80 @@
+/* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    transition: background 0.3s;
+}
+
+#mobile-os {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+
+#app-container {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app {
+    width: 90%;
+    height: 90%;
+    margin: 15px;
+    background: lightblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: url("cursors/cursor.cur"), auto;
+    overflow: auto;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: #ddd;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+}
+
+body.dark-mode #mobile-os {
+    background: #1e1e1e;
+}
+
+body.dark-mode .app {
+    background: #333;
+    color: white;
+}
+.app button{
+    cursor: url("cursors/pointer_new.cur"), auto;
+}
+.app label{
+    cursor: url("cursors/pointer_new.cur"), auto;
+}
+.app input[type="text"]{
+    cursor: url("cursors/text.cur"), auto;
+}
+iframe{
+    border: 0;
+}

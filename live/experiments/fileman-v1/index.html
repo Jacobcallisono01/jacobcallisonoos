@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>File Manager (V1)</title>
+</head>
+<body>
+    <a onclick="showhidemenu()"><img src="assets/MENU.bmp" alt="Menu" /> Menu</a>
+    <div id="menu" style="display: none;">
+            <a onmousedown="openmenu(1)">File</a>
+            <a onmousedown="openmenu(2)">Edit</a>
+            <a onmousedown="openmenu(3)">View</a>
+            <a onmousedown="openmenu(4)" style="float: right;">Help</a>
+    </div>
+    <div id="menu1" class="dropdown" style="display: none;">
+        <a onmousedown="newfile()">New...</a>
+        <br>
+        <a onmousedown="openfile()">Open</a>
+        <br>
+        <a onmousedown="gotofolder()">Goto Folder</a>
+        <hr>
+        <a onmousedown="deleteitem()">Delete</a>
+        <br>
+        <a onmousedown="renameitem()">Rename</a>
+        <hr>
+        <a onmousedown="itemproperties()">Properties</a>
+        <hr>
+        <a onmousedown="refreshlist()">Refresh</a>
+    <hr>
+        <a onmousedown="exit()">Exit</a>
+    </div>
+    <div id="menu2" class="dropdown" style="display: none;">
+        <a onmousedown="copyitem()">Copy</a>
+        <br>
+        <a onmousedown="cutitem()">Cut</a>
+        <br>
+        <a onmousedown="pasteitem()">Paste</a>
+        <hr>
+        <a onmousedown="selectall()">Select All</a>
+        <hr>
+        <a onmousedown="undo()">Undo</a>
+        <br>
+        <a onmousedown="redo()">Redo</a>
+    </div>
+    <div id="menu3" class="dropdown" style="display: none;">
+        <a onmousedown="viewdetails()">Details</a>
+        <br>
+        <a onmousedown="viewicons()">Icons</a>
+        <hr>
+        <a onmousedown="sortbyname()">Sort by Name</a>
+        <br>
+        <a onmousedown="sortbysize()">Sort by Size</a>
+        <br>
+        <a onmousedown="sortbydate()">Sort by Date</a>
+        <hr>
+        <a onmousedown="viewhidden()">Show Hidden Files</a>
+        <br>
+        <a onmousedown="viewextensions()">Show File Extensions</a>
+    </div>
+    <div id="menu4" class="dropdown" style="display: none; float: right;">
+        <a onmousedown="help()">Help...</a>
+        <br>
+        <a onmousedown="about()">About Jacobcallisono File Manager...</a>
+        <hr>
+        <a onmousedown="checkupdates()">Check for Updates...</a>
+        <hr>
+        <a onmousedown="viewchangelog()">View changelog</a>
+    </div>
+    <div id="directoryview" class="dirview"></div>
+</body>
+<script src="script.js"></script>
+</html>

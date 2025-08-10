@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono Browser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="browser">
+        <div id="toolbar">
+            <button id="back" onclick="goBack()"><</button>
+            <button id="forward" onclick="goForward()">></button>
+            <input type="text" id="url" placeholder="Enter URL">
+            <button id="go" onclick="navigate()" style="background-color: green;">GO</button>
+            <button id="newTab" onclick="newTab()">+</button>
+            <button id="settings" onclick="newsettingsTab()">Settings</button>
+        </div>
+        <div id="tabs">
+            <div class="tab active" onclick="selectTab(event)">Tabs ></div> 
+        </div>
+        <div id="content">
+            <iframe id="web-view" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

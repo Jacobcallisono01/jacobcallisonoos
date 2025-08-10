@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono OS Recovery mode</title>
+</head>
+<body>
+    <img src="assets/warning.png" alt="warning">
+    <h1>Jacobcallisono OS Is Missing or damaged.</h1>
+    <h2>recovery options:</h2>
+    <h3>Diskette Installation: Insert Disk 32 (OSRECOVERY) In drive A: To recover</h3>
+    <h3>CD/DVD Installation: Insert Disc 4 (OS Recovery Process) In drive D: To recover</h3>
+    <h3>CF Card Installation: Insert Card 3 (OS Recovery Process 1/2) To Start Recovery</h3>
+    <h3>SD Card Installation: Insert Card 2 (OS System Recovery) To recover</h3>
+    <h3>MicroSD Card Installation: Insert The OS System Recovery Card To start recovery</h3>
+    <h3>USB Stick Installation: Insert USB 2 (Jacobcallisono OS System Recovery) To recover</h3>
+    <h3>Hard Disk Installation: Insert a Recovery USB Stick or SD Card To recover</h3>
+    <h2>Other options:</h2>
+    <h3>To restart, press ALT+B</h3>
+    <h3>To change version, press ALT+V</h3>
+    <h3>To begin Recovery, press ALT+R</h3>
+    <a href="index.html" accesskey="b"></a>
+</body>
+<footer>
+    <div id="ver"></div>
+    <div id="webdrv"></div>
+    <div id="codename"></div>
+    <div id="hardware"></div>
+    <div id="vendor"></div>
+    <div id="subvendor"></div>
+    <div id="touch"></div>
+    <div id="online"></div>
+</footer>
+</html>
+<style>
+    body{
+        margin: 0;
+        background-color: darkcyan;
+        font-family: sans-serif;
+        color: white;
+        font-weight: 300;
+    }
+</style>
+<script>
+if (navigator.vendorSub === "") {
+    document.getElementById("subvendor").innerText = "User has no SubVendor";
+} else {
+    document.getElementById("subvendor").innerText = "Sub Vendor Is " + navigator.vendorSub;
+}
+if (navigator.maxTouchPoints === 0) {
+    document.getElementById("touch").innerText = "User Has No TouchScreen.";
+} else {
+    document.getElementById("touch").innerText = "User Can Have Up To " + navigator.maxTouchPoints + " Touch Points.";
+}
+if (navigator.onLine === false) {
+    document.getElementById("online").innerText = "User Is Offline.";
+} else {
+    document.getElementById("online").innerText = "User Is Online!";
+}
+document.getElementById("ver").innerText = navigator.userAgent;
+document.getElementById("webdrv").innerText = "WebDRV Avalible:" + navigator.webdriver;
+document.getElementById("codename").innerText = "CodeName " + navigator.appCodeName;
+document.getElementById("hardware").innerText = "HardWare Concurrency: " + navigator.hardwareConcurrency;
+document.getElementById("vendor").innerText = "Vendor Is " + navigator.vendor;
+
+</script>

@@ -1,0 +1,35 @@
+body {
+    color: #000;
+    font-family:'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+.terminal {
+    border: 1px solid #444;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.output {
+    white-space: pre-wrap; /* maintains spaces and new lines */
+    margin-bottom: 10px;
+}
+
+.input-area {
+    display: flex;
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+    background: transparent;
+    border: none;
+    color: #222;
+    outline: none;
+    flex-grow: 1;
+}

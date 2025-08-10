@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="boot" class="bootup">
+        <h1>Jacobcallisono OS V0.3.2</h1>
+        <img src="assets/loading_bar.png" alt="Loading..." style="justify-content: center; align-items: end; width: fit-content; height:fit-content;">
+    </div>
+    <div id="login-screen" class="screen" style="display: none;">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+    <div id="desktop" class="screen" style="display: none;">
+        <div id="launcher" style="top: auto; z-index: 3;">
+            <button onclick="toggleApps()" accesskey="l">Launcher</button>
+        </div>
+        <div id="taskbar">
+        </div>
+        <div id="apps" style="z-index: 0;"></div>
+        <div id="Launcherapps" hidden style="z-index: 2;">
+            <a onclick="openApp('browser',0.2,0.2);" style="align-items: start;"><img src="assets/browser.png" width="64" height="64" title="Web browser"></a>
+            <a onclick="openApp('cmd',0.2,0.2)" style="align-items: start;"><img src="assets/cmd.png" width="64" height="64" title="Command Prompt"></a>
+            <a onclick="openApp('file-manager',0.2,0.2)" style="align-items: start;"><img src="assets/files.png" width="64" height="64" title="Files"></a>
+            <a onclick="openApp('virtualdesk',0.2,0.2)" style="align-items: start;"><img src="assets/virtualdesk.webp" width="64" height="64" title="Virtual Desktop"></a>
+            <br>
+            <button onclick="closelauncher()">Close App Launcher</button>
+            <button onclick="showdesktop()">Show desktop</button>
+            <br>
+            <a href="">Restart</a>
+            <button onclick="logout()">Log out</button>
+            <button onclick="run()">Run...</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <noscript>
+        <h1>Cannot Find explorer.hex</h1>
+        <h1>You must reinstall Jacobcallisono OS.</h1>
+    </noscript>
+</body>
+</html>

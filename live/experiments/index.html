@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobcallisono OS Experiments</title>
+</head>
+<body>
+    <div id="flag1">
+        <a>Enable Jacobcallisono File Manager</a><input type="checkbox" id="filemanflag" onchange="toggleFileManflag()">
+    </div>
+    
+</body>
+</html>
+<script>
+    document.getElementById('filemanflag').checked = localStorage.getItem('filemanflag');
+function toggleFileManflag() {
+    const fileManFlag = document.getElementById('filemanflag').checked;
+    if (fileManFlag == true) {
+        localStorage.setItem('filemanflag', 1);
+    } else {
+        localStorage.setItem('filemanflag', 0);
+    }
+}
+</script>
