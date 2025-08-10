@@ -454,11 +454,11 @@ outputbatterylevel()
   const canvas = document.createElement('canvas');
   const gl = canvas.getContext('webgl', { powerPreference: "high-performance" }) || canvas.getContext('experimental-webgl', { powerPreference: "high-performance" });
   if (!gl) {
-    return "WebGL not supported";
+    return "No GPU detected";
   }
   const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
   if (!debugInfo) {
-    return "WEBGL_debug_renderer_info extension not supported";
+    return "Unknown GPU";
   }
   const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
   return renderer;
